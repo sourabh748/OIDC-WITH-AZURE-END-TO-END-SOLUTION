@@ -1,4 +1,8 @@
-certs/*
+certs/crts.sh
+certs/nifi.key
+certs/rootCA.key
+certs/rootCA.pem
+certs/*.swp
 compose/nifi1/*
 compose/nifi2/*
 compose/zookeeper/*
