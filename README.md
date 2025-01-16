@@ -45,7 +45,7 @@ openssl req -x509 \
 5. Go to **Authentication** ( APP registration [choose App Registration] --> Manage --> Authentication ):-
      1. ```+ Add Platform ``` --> ```web``` --> ```Add Redirect URI as https://localhost:8443/nifi-api/access/oidc/callback``` --> ```Configure```
 
-## step 3
+## Step 3
 
 edit **.nifi1.env** && **.nifi2.env** & set the Environment variable properties below:-
 
@@ -58,7 +58,7 @@ edit **.nifi1.env** && **.nifi2.env** & set the Environment variable properties 
 |MICROSOFT_APP_CLIENT_SECRET| ------- | Add your **spn secrets** |
 |MICROSOFT_GROUP_FILTER| ------- | Add your group (ex:- NIFI-ADMIN) |
 
-## step 4
+## Step 4
 
 ```
 cd OIDC-WITH-AZURE-END-TO-END-SOLUTION/compose
