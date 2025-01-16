@@ -10,7 +10,6 @@ services:
     build:  
       context: ../
       dockerfile: Dockerfile
-      target: targetStage
     # image: nifi:25-jdk-slim-bullseye
     restart: always
     networks:
