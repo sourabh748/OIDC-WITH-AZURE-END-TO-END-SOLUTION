@@ -56,6 +56,7 @@ edit **.nifi1.env** && **.nifi2.env** & set the Environment variable properties 
 |INITIAL_ADMIN_IDENTITY_EMAIL| ------- | Add your **upn** or **email** |
 |MICROSOFT_APP_REGISTRATION_OBJECT_ID| -------- | your Application **spn Application Id** |
 |MICROSOFT_APP_CLIENT_SECRET| ------- | Add your **spn secrets** |
+|MICROSOFT_GROUP_FILTER| ------- | Add your group (ex:- NIFI-ADMIN) |
 
 ## step 4
 
