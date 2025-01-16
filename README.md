@@ -1,6 +1,6 @@
 **This is the step-by-step guide to authenticate NIFI with AZURE (OIDC Protocol)**
 
-  This is the Guide to running NIFI on the local desktop. **( Next Readme.Md file will be pushed to the same repository which contains Instructions to deploy NIFI on kubernetes... )**
+  This is the Guide to running NIFI on the local desktop. **( Next Readme.Md file will be pushed to the same repository which contains Instructions to deploy NIFI on kubernetes and another customization... )**
 
   After configuring and following the below steps you get the two NIFI node clusters and access the cluster on **https://localhost:8443** on your local desktop
 
