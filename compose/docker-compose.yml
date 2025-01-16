@@ -1,0 +1,78 @@
+version: "2"
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  nifi-image-test:
+    container_name: nifi
+    build:  
+      context: ../
+      dockerfile: Dockerfile
+      target: targetStage
+    image: nifi:25-jdk-slim-bullseye
+    restart: always
+    networks:
+      - app-tier
+    ports:
+      - 8443:8443
+      - 10000:10000
+      - 6432:6432
+      - 8082:8082
+      - 9092:9092
+    env_file:
+      - ../.nifi1.env
+    volumes:
+      - ./nifi1/content_repository:/opt/nifi-2.1.0/nifi-2.1.0/content_repository
+      - ./nifi1/flowfile_repository:/opt/nifi-2.1.0/nifi-2.1.0/flowfile_repository
+      - ./nifi1/logs:/opt/nifi-2.1.0/nifi-2.1.0/logs
+      - ./nifi1/provenance_repository:/opt/nifi-2.1.0/nifi-2.1.0/provenance_repository
+      - ./nifi1/state:/opt/nifi-2.1.0/nifi-2.1.0/state
+      - ../start.sh:/opt/nifi-2.1.0/start/start.sh
+      - ../crts.sh:/opt/nifi-2.1.0/start/crts.sh
+      - ../certs/rootCA.key:/opt/nifi-2.1.0/certs/rootCA.key
+      - ../certs/rootCA.pem:/opt/nifi-2.1.0/certs/rootCA.pem
+    depends_on:
+      - zookeeper
+  nifi-image-test-2:
+    container_name: nifi-2
+    # build:  
+    #   context: ../
+    #   dockerfile: Dockerfile
+    image: nifi:25-jdk-slim-bullseye
+    restart: always
+    networks:
+      - app-tier
+    ports:
+      - 8080:8443
+    env_file:
+      - ../.nifi2.env
+    volumes:
+      - ./nifi2/content_repository:/opt/nifi-2.1.0/nifi-2.1.0/content_repository
+      - ./nifi2/flowfile_repository:/opt/nifi-2.1.0/nifi-2.1.0/flowfile_repository
+      - ./nifi2/logs:/opt/nifi-2.1.0/nifi-2.1.0/logs
+      - ./nifi2/provenance_repository:/opt/nifi-2.1.0/nifi-2.1.0/provenance_repository
+      - ./nifi2/state:/opt/nifi-2.1.0/nifi-2.1.0/state
+      - ../start.sh:/opt/nifi-2.1.0/start/start.sh
+      - ../crts.sh:/opt/nifi-2.1.0/start/crts.sh
+      - ../certs/rootCA.key:/opt/nifi-2.1.0/certs/rootCA.key
+      - ../certs/rootCA.pem:/opt/nifi-2.1.0/certs/rootCA.pem
+    depends_on:
+      - zookeeper
+  zookeeper:
+    container_name: zookeeper
+    image: docker.io/bitnami/zookeeper:3.8.4-debian-12-r17@sha256:4d450d4b1dab610e1012993d2ea78ba00a516b63e74214a57fef40c060ce4986
+    restart: always
+    ports:
+      - 2181:2181
+    networks:
+      - app-tier
+    environment:
+      - ZOO_DATA_LOG_DIR=/bitnami/zookeeper
+      - ZOO_PORT_NUMBER=2181
+      - ZOO_SERVER_ID=1
+      - ALLOW_ANONYMOUS_LOGIN=yes
+      - ZOO_MAX_CNXNS=60
+    volumes:
+      - ./zookeeper:/bitnami/zookeeper

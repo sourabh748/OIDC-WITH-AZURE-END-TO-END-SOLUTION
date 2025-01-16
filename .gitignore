@@ -1,0 +1,11 @@
+certs/*
+compose/nifi1/*
+compose/nifi2/*
+compose/zookeeper/*
+test/*
+*.p12
+nifi.properties
+env.yml
+secrets.yml
+nifi.yml
+secrets.env
