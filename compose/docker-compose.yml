@@ -21,7 +21,7 @@ services:
       - 8082:8082
       - 9092:9092
     env_file:
-      - ../.nifi1.env
+      - ../env/.nifi1.env
     volumes:
       - ./nifi1/content_repository:/opt/nifi-2.1.0/nifi-2.1.0/content_repository
       - ./nifi1/flowfile_repository:/opt/nifi-2.1.0/nifi-2.1.0/flowfile_repository
@@ -46,7 +46,7 @@ services:
     ports:
       - 8080:8443
     env_file:
-      - ../.nifi2.env
+      - ../env/.nifi2.env
     volumes:
       - ./nifi2/content_repository:/opt/nifi-2.1.0/nifi-2.1.0/content_repository
       - ./nifi2/flowfile_repository:/opt/nifi-2.1.0/nifi-2.1.0/flowfile_repository
