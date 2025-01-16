@@ -11,7 +11,7 @@ services:
       context: ../
       dockerfile: Dockerfile
       target: targetStage
-    image: nifi:25-jdk-slim-bullseye
+    # image: nifi:25-jdk-slim-bullseye
     restart: always
     networks:
       - app-tier
@@ -37,10 +37,10 @@ services:
       - zookeeper
   nifi-image-test-2:
     container_name: nifi-2
-    # build:  
-    #   context: ../
-    #   dockerfile: Dockerfile
-    image: nifi:25-jdk-slim-bullseye
+    build:  
+      context: ../
+      dockerfile: Dockerfile
+    # image: nifi:25-jdk-slim-bullseye
     restart: always
     networks:
       - app-tier
