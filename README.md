@@ -52,7 +52,7 @@ edit **.nifi1.env** && **.nifi2.env** & set the Environment variable properties 
 | properties | default value | pattern (or description) |
 |:----------:|:-------------:|:-------:|
 |NIFI_OIDC_DISCOVERY_URL | ------- | https://login.microsoftonline.com/${MICROSOFT_TENANT_ID}/v2.0/.well-know/openid-configuration |
-|MICROSOFT_TENANT_ID | ------ | -------- |
+|MICROSOFT_TENANT_ID | ------ | Tenant Id |
 |INITIAL_ADMIN_IDENTITY_EMAIL| ------- | Add your **upn** or **email** |
 |MICROSOFT_APP_REGISTRATION_OBJECT_ID| -------- | your Application **spn Application Id** |
 |MICROSOFT_APP_CLIENT_SECRET| ------- | Add your **spn secrets** |
