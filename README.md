@@ -41,7 +41,7 @@ openssl req -x509 \
    
      Add optional claims:-
      1. upn
-     2. email ( for on-prem setup )
+     2. email ( for on-prem AADS )
 5. Go to **Authentication** ( APP registration [choose App Registration] --> Manage --> Authentication ):-
      1. ```+ Add Platform ``` --> ```web``` --> ```Add Redirect URI as **https://localhost:8443/nifi-api/access/oidc/callback**``` --> ```Configure```
 
